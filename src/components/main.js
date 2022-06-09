@@ -67,7 +67,7 @@ const Main = (props) => {
 }
 
 let MainWrap = styled.div`
-width:60%;
+width:600px;
 position:relative;
 margin:0 auto;
 `
@@ -90,8 +90,9 @@ button {
    
  }
  width:220px;
- margin-left:80%;
- 
+ margin-left:380px;
+ margin-bottom:20px;
+
 `
 
 export default Main;
