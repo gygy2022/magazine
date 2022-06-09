@@ -3,6 +3,7 @@ import {onAuthStateChanged, signOut} from 'firebase/auth';
 import { collection, getDoc } from 'firebase/firestore';
 import { auth, db } from '.././shared/firebase';
 import { useNavigate } from "react-router-dom";
+import styled  from "styled-components";
 
 import PostList from './postList';
 
@@ -28,6 +29,8 @@ const Main = (props) => {
 
   }, [])
 
+
+
   const FalseButton = () => {
     return (
       <>
@@ -47,16 +50,48 @@ const Main = (props) => {
   }
 
   return (
-    <div>
-    <h1>메인페이지</h1>
+    <MainWrap>
+    <MainTitle>MAGAZINE</MainTitle>
+    <Buttons>
     {isLogin ? (
       <TrueButton />
     ) : (
       <FalseButton />
     )}
+    </Buttons>
     <PostList />
-    </div>
+    </MainWrap>
   )
+
+ 
 }
+
+let MainWrap = styled.div`
+width:60%;
+position:relative;
+margin:0 auto;
+`
+let MainTitle = styled.div`
+background-color: goldenrod;
+font-size:50px;
+font-weight:bold;
+margin-bottom: 20px;
+`
+
+let Buttons = styled.div`
+
+button {
+   margin:0 5px;
+   width: 100px;
+   height: 40px;
+   border-radius: 20px;
+   border:4px double goldenrod;
+   background-color: #fff;
+   
+ }
+ width:220px;
+ margin-left:80%;
+ 
+`
 
 export default Main;
