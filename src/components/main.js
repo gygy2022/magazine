@@ -1,12 +1,16 @@
 import React from "react";
 import {onAuthStateChanged, signOut} from 'firebase/auth';
+import { collection, getDoc } from 'firebase/firestore';
 import { auth, db } from '.././shared/firebase';
 import { useNavigate } from "react-router-dom";
+
+import PostList from './postList';
 
 const Main = (props) => {
   const navigate = useNavigate();
 
   const [isLogin, setIsLogin] = React.useState(false);
+  console.log(`auth.currentUser`);
   console.log(auth.currentUser);
 
   const loginCheck = async (user) => {
@@ -50,8 +54,7 @@ const Main = (props) => {
     ) : (
       <FalseButton />
     )}
-    
-    <div>게시물 리스트</div>
+    <PostList />
     </div>
   )
 }

@@ -6,10 +6,20 @@ import Login from './components/login';
 import Write from './components/writepage';
 
 import { Routes, Route } from 'react-router-dom';
-
+import { useDispatch } from "react-redux";
+import { loadPostFB } from "./redux/modules/post";
 
 
 function App() {
+
+  const dispatch = useDispatch();
+  React.useEffect( () => {
+    
+    dispatch(loadPostFB());
+
+  }, []);
+
+
 
   return (
     <div className="App">
